@@ -9,7 +9,7 @@ Notification.requestPermission().then((permission) => {
     // Verifica se o navegador suporta Service Workers
     if ('serviceWorker' in navigator) {
       navigator.serviceWorker
-        .register('/service-worker.js')
+        .register('/sw.js')
         .then(async (registration: ServiceWorkerRegistration) => {
           console.log('Service Worker registrado com sucesso:', registration)
 
