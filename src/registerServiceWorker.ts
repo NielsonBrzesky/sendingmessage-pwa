@@ -9,7 +9,7 @@ Notification.requestPermission().then((permission) => {
     // Verifica se o navegador suporta Service Workers
     if ('serviceWorker' in navigator) {
       navigator.serviceWorker
-        .register('/sw.js')
+        .register('/service-worker.js')
         .then(async (registration: ServiceWorkerRegistration) => {
           console.log('Service Worker registrado com sucesso:', registration)
 
@@ -125,17 +125,14 @@ async function sendSubscriptionToBackend(subscription: any) {
 
   // Enviar a inscrição para o servidor com autenticação
   try {
-    const response = await fetch(
-      'https://2c50-2804-11e4-423-7000-d188-a10a-c0da-1434.ngrok-free.app/api/Notification/subscribe',
-      {
-        method: 'POST',
-        body: JSON.stringify(subscription),
-        headers: {
-          'Content-Type': 'application/json',
-          Authorization: `Bearer ${token}`
-        }
+    const response = await fetch('https://localhost:7127/api/Notification/subscribe', {
+      method: 'POST',
+      body: JSON.stringify(subscription),
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${token}`
       }
-    )
+    })
 
     if (!response.ok) {
       throw new Error('Erro ao enviar a inscrição para o servidor.')
