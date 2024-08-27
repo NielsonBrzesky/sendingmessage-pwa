@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- <h1>Teste de Notificações Push CODEN3</h1> -->
+    <!-- <button id="subscribeButton">Inscrever-se para Notificações</button> -->
+    <script>
+      //   const vapidKeys = {
+      //     publicKey:
+      //       'BOc4XoWWX6ggheu3H-HYmkmnPA4wX5np-TqUuIcfqilxt3UCHWPUMB1ch36jYBoeuJ6yJxWeEVvzGVg07dkEoZM',
+      //     privateKey: 'GnCKENzDJLtOizR37lDMGb1xy4Ykw48zPLWLIvseo8c'
+      //   }
+
+      //   const options = {
+      //     vapidDetails: {
+      //       subject: 'nilbrzesky@outlook.com',
+      //       publicKey:
+      //         'BOc4XoWWX6ggheu3H-HYmkmnPA4wX5np-TqUuIcfqilxt3UCHWPUMB1ch36jYBoeuJ6yJxWeEVvzGVg07dkEoZM',
+      //       privateKey: 'GnCKENzDJLtOizR37lDMGb1xy4Ykw48zPLWLIvseo8c'
+      //     }
+      //   }
+
+      //   document.getElementById('subscribeButton').addEventListener('click', function () {
+      //     navigator.serviceWorker
+      //       .register('./service-worker.js')
+      //       .then(function (registration) {
+      //         return registration.pushManager.subscribe({
+      //           userVisibleOnly: true,
+      //           applicationServerKey: vapidKeys.publicKey
+      //         })
+      //       })
+      //       .then(function (subscription) {
+      //         console.log('Inscrição bem-sucedida:', subscription)
+      //       })
+      //       .catch(function (error) {
+      //         console.error('Erro ao se inscrever:', error)
+      //       })
+      //   })
+      if ('serviceWorker' in navigator) {
+        navigator.serviceWorker
+          .register('./service-worker.js')
+          .then(function (registration) {
+            console.log('Inscrição bem-sucedida!')
+          })
+          .catch(function (error) {
+            console.warn('Erro ao se inscrever:', error)
+          })
+      }
+    </script>
+  </body>
+</html>
