@@ -14,7 +14,7 @@ export default defineConfig({
     VitePWA({
       registerType: 'autoUpdate',
       injectManifest: {
-        swSrc: './src/service-worker.js', // Caminho do Service Worker
+        swSrc: './service-worker.js', // Caminho do Service Worker
         swDest: './service-worker.js' // Caminho de destino do Service Worker
       },
       workbox: {
