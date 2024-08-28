@@ -125,14 +125,17 @@ async function sendSubscriptionToBackend(subscription: any) {
 
   // Enviar a inscrição para o servidor com autenticação
   try {
-    const response = await fetch('https://localhost:7127/api/Notification/subscribe', {
-      method: 'POST',
-      body: JSON.stringify(subscription),
-      headers: {
-        'Content-Type': 'application/json',
-        Authorization: `Bearer ${token}`
+    const response = await fetch(
+      'https://8a7f-2804-11e4-423-6800-3894-8e16-9083-163c.ngrok-free.app/api/Notification/subscribe',
+      {
+        method: 'POST',
+        body: JSON.stringify(subscription),
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${token}`
+        }
       }
-    })
+    )
 
     if (!response.ok) {
       throw new Error('Erro ao enviar a inscrição para o servidor.')
